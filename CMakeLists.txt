@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.2)
 project(NCXT_Fenix)
 
+include(lib/cmake/test.cmake)
+
 set(NCXT_Fenix_VERSION_MAJOR 0)
 set(NCXT_Fenix_VERSION_MINOR 1)
 set(NCXT_Fenix_VERSION_PATCH 0)
@@ -22,3 +24,6 @@ set_target_properties(NCXT_Fenix_LIB PROPERTIES
 
 add_subdirectory(project/test)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+enable_testing()
+add_unit_test_dir(${CMAKE_CURRENT_SOURCE_DIR}/test)
