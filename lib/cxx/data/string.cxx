@@ -58,4 +58,22 @@ size_t String::strLen(const char *string) {
 
     return len;
 }
+
+bool String::operator==(const fx::String &other) const {
+    if (this->length != other.length) {
+        return false;
+    }
+
+    for (size_t i = 0; i < this->length; i++) {
+        if (this->str[i] != other.str[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool String::operator!=(const fx::String &other) const {
+    return !(*this == other);
+}
 }

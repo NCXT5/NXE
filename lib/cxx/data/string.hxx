@@ -13,12 +13,11 @@ private:
      */
     char *str;
 
+public:
     /**
      * This is the length of the string.
      */
     size_t length;
-
-public:
 
     /**
      * @param str Input string as a character array.
@@ -48,6 +47,8 @@ public:
     static size_t strLen(const char *string);
 
     explicit operator const char *() const;
-    String operator+(const String& other) const;
+    String operator + (const String& other) const;
+    bool operator == (const String& other) const;
+    bool operator != (const String& other) const;
 };
 }
