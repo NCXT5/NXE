@@ -1,0 +1,3 @@
+namespace uwu {
+void hi();
+}
