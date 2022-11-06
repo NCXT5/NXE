@@ -1,4 +1,0 @@
-#pragma once
-
-#include "../../src/lexer/lexer.hxx"
-#include "../../src/lexer/scanner.hxx"
