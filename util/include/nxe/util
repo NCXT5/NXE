@@ -1,3 +1,10 @@
 #pragma once
 
+/// This library contains tools for performing basic functional
+/// operations, passing around function return/value/error data,
+/// storing data in arrays, maps, and lists, and other basic utility
+/// tasks.
+namespace nxe::util {}
+
 #include "../../lib/array.h"
+#include "../../lib/res.h"

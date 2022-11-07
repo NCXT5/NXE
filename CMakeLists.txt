@@ -15,6 +15,9 @@ function(nxe_add_library NXE_LIBRARY_NAME)
     add_library(${PROJECT_NAME}::${NXE_LIBRARY_NAME} ALIAS ${PROJECT_NAME}_${NXE_LIBRARY_NAME})
     target_include_directories(${PROJECT_NAME}_${NXE_LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${NXE_LIBRARY_NAME}/include)
 
+    # Set linker properties
+    set_target_properties(${PROJECT_NAME}_${NXE_LIBRARY_NAME} PROPERTIES LINKER_LANGUAGE CXX)
+
     # Add tests
     file(GLOB_RECURSE NXE_LIBRARY_TESTS ${CMAKE_CURRENT_SOURCE_DIR}/${NXE_LIBRARY_NAME}/test/*.cc)
 
