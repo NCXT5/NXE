@@ -2,6 +2,6 @@
 
 int main() {
     using namespace nxe::util;
-    Array arr;
+    Array<int> arr;
     return 0;
 }

@@ -48,6 +48,16 @@ public:
             m_arr[i] = ArrEl();
     }
 
+    /// Construct a new array from an already existing array object.
+    /// @param arr The array to build from.
+    Array(const Array<ArrEl> &arr) {
+        m_bytes = arr.m_bytes;
+        m_len = arr.m_len;
+        m_arr = new ArrEl[m_len];
+        for (size_t i = 0; i < m_len; i++)
+            m_arr[i] = arr.m_arr[i];
+    }
+
     /// Initialize the array with absolutely no data inside of it.
     /// The size of the array will also be 0 until elements are added.
     Array() {
@@ -162,6 +172,18 @@ public:
         if (index >= m_len)
             return Err(ArrayError::IndexOutOfBounds);
         return Ok(m_arr[index]);
+    }
+
+    /// Get the beginning pointer to the array.
+    /// @return The beginning pointer to the array.
+    [[nodiscard]] ArrEl *begin() const {
+        return m_arr;
+    }
+
+    /// Get the end pointer to the array.
+    /// @return The end pointer to the array.
+    [[nodiscard]] ArrEl *end() const {
+        return m_arr + m_len;
     }
 };
 }
