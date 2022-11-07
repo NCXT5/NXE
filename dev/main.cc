@@ -1,7 +1,7 @@
 #include <nxe/util>
 #include <iostream>
 
-void p(nxe::util::Array<int> arr) {
+void p(const nxe::util::Array<int>& arr) {
     for (auto &x : arr)
         printf("Element: %d\n", x);
     printf("---\n");
