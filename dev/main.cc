@@ -1,23 +1,12 @@
-#include <nxe/util>
+#include <nxe/util.h>
 #include <iostream>
 
-void p(const nxe::util::Array<int>& arr) {
-    for (auto &x : arr)
-        printf("Element: %d\n", x);
-    printf("---\n");
-}
-
 int main() {
-    nxe::util::Array<int> arr;
-
-    arr.sAdd(1);
-    arr.sAdd(2);
-    arr.sAdd(3);
-    arr.sAdd(4);
-
-    p(arr);
-    arr.kill(0);
-    p(arr);
-
+    using namespace nxe::util;
+    Array<String> words = String("Hello normal world").split(" ");
+    for (int i = 0; i < words.len(); i++) {
+        std::cout << words.access(i).rev() << "-";
+    }
+    std::cout << std::endl;
     return 0;
 }

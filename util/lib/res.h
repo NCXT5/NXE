@@ -1,11 +1,13 @@
 #pragma once
 
+#include <stddef.h>
 #ifdef __linux__
-    #include <exception>
+    #include <stdexcept>
 #endif
 
 namespace nxe::util {
-/// This is a shorthand class used for returning a function
+/// This is a shorthand
+/// class used for returning a function
 /// result as a value.
 /// @tparam VType The type of the value.
 template <typename VType> class Ok {
@@ -57,6 +59,13 @@ public:
     /// @param error The error to store.
     /// NOLINTNEXTLINE(google-explicit-constructor) TODO: Remove need for google style
     Result(const Err<EType> &error) : m_error(error.m_error), m_isOk(false) {}
+
+    ~Result() {
+        if (m_isOk)
+            m_value.~VType();
+        else
+            m_error.~EType();
+    }
 
     /// Try to reveal the successful value of the result. If the result is not
     /// successful, this will throw an error.
